@@ -1,0 +1,51 @@
+#main_Game{
+    text-align: center;
+    display: none;
+}
+.hidden{
+    background-color: blueviolet;
+    border-radius: 4px;
+    color: azure;
+    width: 50%;
+    margin-left: 25%;
+    display: none;
+}
+.hidden h2{
+
+    margin-bottom: 0%;
+}
+
+.hidden p{
+    margin-top: 0%;
+    padding-bottom: 2%;
+
+}
+.game_board{
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3,6rem);
+    grid-template-rows: repeat(3,6rem);
+    justify-content: center;
+    gap: 0.5rem;
+
+}
+.game_board li{
+    background-color: rgb(176, 166, 154);
+    border-radius: 5px;
+    display: flex;
+    font-size: 500%;
+    justify-content: center;
+    color: black;
+
+
+}
+.game_board li:hover{
+    background-color: blueviolet;
+    cursor: pointer;
+}
+.game_board li.disable{
+    background-color: rgb(138,43, 226);
+    cursor: default;
+    color: aliceblue;
+
+}

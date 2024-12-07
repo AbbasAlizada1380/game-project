@@ -1,0 +1,75 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="overlay.css" />
+    <link rel="stylesheet" href="main_Game.css" />
+    <script src="configuration.js" defer></script>
+    <script src="game.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+   
+    <div id="backdrop"></div>
+    <div class="winner">
+      <h1>you won <span id="winner"></span>!!!</h1>
+      <h2>Congratulations on you</h2>
+    </div>
+    <header id="header_part">
+      <h1>play Tic, Tac, Toe</h1>
+      <p>built in HTML, CSS,Javascript and of course lot of love</p>
+    </header>
+    <aside class="modale" id="config_overlay">
+      <form>
+        <h2>enter your name</h2>
+        <label for="playerName" id="labelElement">playerName</label><br />
+        <input type="text" id="playerName" name="playerName" /><br />
+        <span id="displayError"></span><br />
+        <button type="reset" id="cancel">cancel</button>
+        <button class="btn" type="submit">submit</button>
+      </form>
+    </aside>
+    <section id="configuration_part">
+      <div id="div">
+        <div class="players_configue" id="player1">
+          <h1>player1</h1>
+          <h3 id="firstPlayer">player name</h3>
+          <p>X</p>
+          <button class="btn" id="button_edite1" data-playerid="1">
+            Edite
+          </button>
+        </div>
+        <div class="players_configue" id="player1">
+          <h1>player2</h1>
+          <h3 id="secondPlayer">player name</h3>
+          <p>O</p>
+          <button class="btn" id="button_edite2" data-playerid="2">
+            Edite
+          </button>
+        </div>
+      </div>
+    </section>
+    <div class="center" id="div1">
+      <button id="start_gamebtn" class="btn">start new game</button>
+    </div>
+    <section id="main_Game">
+      <div class="hidden">
+        <h2>you won <span id="winner_name">empty</span></h2>
+        <p>click "start new game" above to start a new game</p>
+      </div>
+      <p>it is your turn <span id="active_playerName"></span></p>
+      <ol class="game_board">
+        <li></li>
+        <li></li>
+        <li></li>
+
+        <li></li>
+        <li></li>
+        <li></li>
+
+        <li></li>
+        <li></li>
+        <li></li>
+      </ol>
+    </section>
+  </body>
+</html>

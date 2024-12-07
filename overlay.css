@@ -1,0 +1,36 @@
+.modale{
+    margin-left: 30%;
+    width: 40%;
+    background-color: white;
+    position: fixed;
+    border-radius: 10px;
+    display: none;
+    text-align: center;
+}
+@media (min-width:48rem){
+    .modale{
+        width: 30%;
+    }
+}
+@media screen and (width:500px) {
+    #div{
+        /* display: inline; */
+        text-align: center;
+    }
+    
+}
+#backdrop{
+width: 100%;
+height: 100%;
+position: fixed;
+top: 0%;
+left: 0%;
+background-color:rgba(3, 0, 0, 0.599) ;
+display: none;
+    }
+    .modale h2{
+        margin: 0px;
+    }
+    .modale input{
+        margin-bottom: 1%;
+    }
