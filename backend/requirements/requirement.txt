@@ -1,0 +1,17 @@
+asgiref
+Django
+django-browser-reload
+django-cors-headers
+django-filter
+django-jazzmin
+django-tailwind
+djangorestframework
+djangorestframework_simplejwt
+drf-yasg
+inflection
+Markdown
+packaging
+pillow
+PyJWT
+pytz
+PyYAML

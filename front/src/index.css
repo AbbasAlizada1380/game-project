@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("/ttf/Vazirmatn-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-vazir: "Vazirmatn";
+  --breakpoint-3xl: 120rem;
+  --color-primary: #2a2185;
+  --color-secondary: #f1f1f1;
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #2a2185;
+  border-radius: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #2a2185;
+}
+
+body {
+  font-family: "Vazirmatn", sans-serif;
+}
+
+/* From Uiverse.io by SelfMadeSystem */ 
+.containchec-containerer {
+  cursor: pointer;
+}
+
+.chec-container input {
+  display: none;
+ 
+}
+
+.chec-container svg {
+  overflow: visible;
+}
+
+.path {
+  fill: none;
+  stroke: #2a2185;
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke-dasharray 0.5s ease, stroke-dashoffset 0.5s ease;
+  stroke-dasharray: 241 9999999;
+  stroke-dashoffset: 0;
+}
+
+.chec-container input:checked ~ svg .path {
+  stroke-dasharray: 70.5096664428711 9999999;
+  stroke-dashoffset: -262.2723388671875;
+}
