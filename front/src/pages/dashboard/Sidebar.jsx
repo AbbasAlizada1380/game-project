@@ -54,7 +54,7 @@ const Sidebar = ({ setActiveComponent }) => {
     // { name: "معاشات", value: "Salaries", icon: <FaBuilding /> },
     // { name: "مصارف", value: "Expenses", icon: <MdLocalLaundryService /> },
     // { name: "عواید", value: "Incomes", icon: <GiTakeMyMoney /> },
-    { name: "برداشت ها", value: "financial", icon: <FaShop /> },
+    // { name: "برداشت ها", value: "financial", icon: <FaShop /> },
     // { name: "واحدها", value: "Blockes", icon: <FaHome /> },
     // {
     //   name: "خدمات واحدها",
