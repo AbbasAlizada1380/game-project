@@ -1042,7 +1042,7 @@ const FinancialReports = () => {
             </div>
           </div>
         </div>
-        <div className="bg-white p-5 rounded-xl shadow-sm border-l-4 border-red-500 transition-shadow hover:shadow-md">
+        {/* <div className="bg-white p-5 rounded-xl shadow-sm border-l-4 border-red-500 transition-shadow hover:shadow-md">
           <div className="flex justify-between items-center">
             <div>
               <p className="text-xl text-gray-500 mb-1 uppercase font-medium">
@@ -1060,8 +1060,8 @@ const FinancialReports = () => {
               <FiTrendingDown className="text-red-500 text-lg" />
             </div>
           </div>
-        </div>
-        <div className="bg-white p-5 rounded-xl shadow-sm border-l-4 border-green-500 transition-shadow hover:shadow-md">
+        </div> */}
+        {/* <div className="bg-white p-5 rounded-xl shadow-sm border-l-4 border-green-500 transition-shadow hover:shadow-md">
           <div className="flex justify-between items-center">
             <div>
               <p className="text-xl text-gray-500 mb-1 uppercase font-medium">
@@ -1097,12 +1097,12 @@ const FinancialReports = () => {
               />
             </div>
           </div>
-        </div>
+        </div> */}
         <div className="bg-white p-5 rounded-xl shadow-sm border-l-4 border-yellow-500 transition-shadow hover:shadow-md">
           <div className="flex justify-between items-center">
             <div>
               <p className="text-xl text-gray-500 mb-1 uppercase font-medium">
-                مجموع باقیات (کرایه/خدمات)
+                مجموع باقیات 
               </p>
               <h3 className="text-xl lg:text-2xl font-bold text-gray-800">
                 {isLoading && totalReminder === 0 && !error ? (
@@ -1117,7 +1117,7 @@ const FinancialReports = () => {
             </div>
           </div>
         </div>
-        <div className="bg-white p-5 rounded-xl shadow-sm border-l-4 border-cyan-500 transition-shadow hover:shadow-md">
+        {/* <div className="bg-white p-5 rounded-xl shadow-sm border-l-4 border-cyan-500 transition-shadow hover:shadow-md">
           <div className="flex justify-between items-center">
             <div>
               <p className="text-xl text-gray-500 mb-1 uppercase font-medium">
@@ -1135,7 +1135,7 @@ const FinancialReports = () => {
               <FiFileText className="text-cyan-500 text-lg" />
             </div>
           </div>
-        </div>
+        </div> */}
         <div className="bg-white p-5 rounded-xl shadow-sm border-l-4 border-rose-500 transition-shadow hover:shadow-md">
           <div className="flex justify-between items-center">
             <div>

@@ -510,7 +510,8 @@ const fetchRoles = async () => {
                 {/* Group them for better UI */}
                 <div className="md:col-span-2 grid grid-cols-2 sm:grid-cols-4 gap-4 pt-3">
                   {/* is_active */}
-                  <div className="flex items-center space-x-2 space-x-reverse">
+                  {editingUserId&&
+                    <div className="flex items-center space-x-2 space-x-reverse">
                     <input
                       type="checkbox"
                       name="is_active"
@@ -525,7 +526,7 @@ const fetchRoles = async () => {
                     >
                       <FiActivity className="ml-1 w-4 h-4 text-gray-500" /> فعال
                     </label>
-                  </div>
+                  </div>}
                 </div>
               </div>
               <div className="md:col-span-2 flex gap-3 justify-end pt-5 border-t mt-5">
