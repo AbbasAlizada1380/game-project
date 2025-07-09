@@ -1,22 +1,21 @@
 // Sidebar.js (Corrected Role Handling)
 
 import React, { useState } from "react";
-import { FaHome, FaServicestack, FaSignOutAlt } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { signOutSuccess } from "../../state/userSlice/userSlice"; // Make sure path is correct
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-import { Fa3, FaBuilding, FaMoneyBill } from "react-icons/fa6";
-import { MdDashboardCustomize } from "react-icons/md";
-import { FaShop } from "react-icons/fa6";
-import { GiTakeMyMoney } from "react-icons/gi";
+
+import {
+  FaSignOutAlt,
+  FaMoneyBill,
+  FaBuilding,
+  FaUserPlus,
+  FaUsers,
+} from "react-icons/fa";
 import { LuActivity, LuUserRoundPlus } from "react-icons/lu";
-import { MdLocalLaundryService } from "react-icons/md";
-import { LuCable } from "react-icons/lu";
-import { FaUserGear } from "react-icons/fa6";
-import { IoMdSettings } from "react-icons/io";
-import { Home } from "lucide-react";
+import { FaShop } from "react-icons/fa6";
 
 const Sidebar = ({ setActiveComponent }) => {
   const [selectedC, setSelectedC] = useState("home");
@@ -44,25 +43,36 @@ const Sidebar = ({ setActiveComponent }) => {
   };
 
   const AllComponents = [
-    { name: "صفحه اصلی", value: "home", icon: <LuActivity /> },
-    { name: "ورزشکاران", value: "Athletes", icon: <LuUserRoundPlus /> },
-    { name: "فیس", value: "Fees", icon: <FaMoneyBill /> },
-    { name: "ورزشکاران فعال", value: "ActiveAthletes", icon: <FaBuilding /> },
-    // { name: "خدمات", value: "ServiceManager", icon: <MdLocalLaundryService /> },
-    // { name: "کرایه‌", value: "RentManger", icon: <GiTakeMyMoney /> },
-    // { name: "کارمندان", value: "StafFManager", icon: <FaUserGear /> },
-    // { name: "معاشات", value: "Salaries", icon: <FaBuilding /> },
-    // { name: "مصارف", value: "Expenses", icon: <MdLocalLaundryService /> },
-    // { name: "عواید", value: "Incomes", icon: <GiTakeMyMoney /> },
-    // { name: "برداشت ها", value: "financial", icon: <FaShop /> },
-    // { name: "واحدها", value: "Blockes", icon: <FaHome /> },
-    // {
-    //   name: "خدمات واحدها",
-    //   value: "BlockesServices",
-    //   icon: <FaServicestack />,
-    // },
-    { name: " ثبت کاربر جدید", value: "CreateUsers", icon: <FaBuilding /> },
-    { name: "خروج", value: "signout", icon: <FaSignOutAlt /> },
+    {
+      name: "صفحه اصلی", // Home Page
+      value: "home",
+      icon: <LuActivity />, // Activity / Dashboard
+    },
+    {
+      name: "ورزشکاران", // Athletes
+      value: "Athletes",
+      icon: <LuUserRoundPlus />, // User with Plus Icon
+    },
+    {
+      name: "فیس", // Fees
+      value: "Fees",
+      icon: <FaMoneyBill />, // Money Icon
+    },
+    {
+      name: "ورزشکاران فعال", // Active Athletes
+      value: "ActiveAthletes",
+      icon: <FaBuilding />, // Building Icon (e.g., gym or facility)
+    },
+    {
+      name: " ثبت کاربر جدید", // Create New User
+      value: "CreateUsers",
+      icon: <FaUserPlus />, // User Plus Icon (FaUserPlus from react-icons/fa)
+    },
+    {
+      name: "خروج", // Sign Out
+      value: "signout",
+      icon: <FaSignOutAlt />, // Sign Out Icon
+    },
   ];
 
   let accessibleComponents = [];
@@ -103,107 +113,56 @@ const Sidebar = ({ setActiveComponent }) => {
   }
 
   return (
-    <div
-      className={`h-full transition-all duration-300 ease-in-out w-64 bg-gradient-to-b from-[#2a2185] to-[#3a32a8] overflow-y-auto `}
-    >
-      <header className="flex items-center gap-5 p-5 text-white font-bold text-xl">
-        <div className="flex items-center justify-center p-1 bg-white rounded-full">
-          <img src="/logo.png" alt="Logo" className="h-10 w-10" />
+    <div className="h-full w-64 bg-zinc-800 overflow-y-auto shadow-xl">
+      {/* Header */}
+      <header className="flex items-center p-5 mb-2">
+        <div className="p-2 bg-white rounded-lg shadow-md">
+          <img src="/logo.png" alt="Logo" className="h-8 w-8" />
         </div>
-
-        <span className="text-lg font-semibold  text-white whitespace-nowrap">
-        کلپ بوگسینگ ملت
+        <span className="mr-3 text-xl font-bold text-white">
+          کلپ بوگسینگ ملت
         </span>
       </header>
 
-      <ul className=" mr-1">
+      {/* Menu Items */}
+      <ul className="space-y-1 px-2">
         {AllComponents.map((component, index) => (
-          <li key={index} className="relative group cursor-pointer">
+          <li key={index} className="relative">
             {component.value === "signout" ? (
-              <a
+              <button
                 onClick={handleSignOut}
-                className={`relative flex items-center w-full px-6 py-3 transition-all duration-300 rounded-r-3xl
-                ${
-                  activeC === component.value
-                    ? "bg-white text-primary"
-                    : "hover:bg-white hover:bg-opacity-20 text-white"
-                }`}
+                className={`w-full flex items-center gap-x-2.5 px-4 py-3 rounded-lg transition-all duration-200
+              hover:bg-white cursor-pointer hover:text-zinc-900 hover:shadow-md
+              ${
+                activeC === component.value
+                  ? "bg-white text-indigo-700 font-medium"
+                  : "text-indigo-100"
+              }`}
               >
-                <span className="text-xl">{component.icon}</span>
-
-                <span className="mr-4 text-lg font-semibold whitespace-nowrap">
-                  {component.name}
-                </span>
-
-                <span
-                  className={`absolute left-0 -top-12 w-12 h-12 bg-transparent rounded-full shadow-[-35px_35px_0_10px_white]
-                      transition-opacity duration-100
-                      ${
-                        activeC === component.value
-                          ? "opacity-100"
-                          : "opacity-0 group-hover:opacity-100"
-                      }`}
-                ></span>
-                <span
-                  className={`absolute left-0 -bottom-12 w-12 h-12 bg-transparent rounded-full shadow-[-35px_-35px_0_10px_white]
-                      transition-opacity duration-100
-                      ${
-                        activeC === component.value
-                          ? "opacity-100"
-                          : "opacity-0 group-hover:opacity-100"
-                      }`}
-                ></span>
-              </a>
+                <span className="text-xl mr-3">{component.icon}</span>
+                <span className="text-sm">{component.name}</span>
+              </button>
             ) : (
-              <a
+              <button
                 onClick={() => {
                   setActiveComponent(component.value);
                   setSelectedC(component.value);
                   setActiveC(component.value);
                 }}
-                onMouseEnter={() => setActiveC(component.value)}
-                onMouseLeave={() => setActiveC(selectedC)}
-                className={`relative flex items-center w-full px-6 py-3 transition-all duration-300 rounded-r-3xl
-                ${
-                  activeC === component.value
-                    ? "bg-white text-primary"
-                    : "hover:bg-white hover:bg-opacity-20 text-white"
-                }`}
+                className={`w-full flex items-center cursor-pointer gap-x-2.5 px-4 py-3 rounded-lg transition-all duration-200
+              ${
+                activeC === component.value
+                  ? "bg-white text-zinc-900 font-medium shadow-md"
+                  : "text-white hover:bg-white hover:text-zinc-900 hover:shadow-md"
+              }`}
               >
-                <span className="text-xl">{component.icon}</span>
-
-                <span className="mr-4 text-lg font-semibold whitespace-nowrap">
-                  {component.name}
-                </span>
-
-                <>
-                  <span
-                    className={`absolute left-0 -top-12 w-12 h-12 bg-transparent rounded-full shadow-[-35px_35px_0_10px_white]
-                      transition-opacity duration-100
-                      ${
-                        activeC === component.value
-                          ? "opacity-100"
-                          : "opacity-0 group-hover:opacity-100"
-                      }`}
-                  ></span>
-                  <span
-                    className={`absolute left-0 -bottom-12 w-12 h-12 bg-transparent rounded-full shadow-[-35px_-35px_0_10px_white]
-                      transition-opacity duration-100
-                      ${
-                        activeC === component.value
-                          ? "opacity-100"
-                          : "opacity-0 group-hover:opacity-100"
-                      }`}
-                  ></span>
-                </>
-              </a>
+                <span className="text-xl mr-3">{component.icon}</span>
+                <span className="text-base">{component.name}</span>
+                {activeC === component.value && (
+                  <span className="absolute right-0 top-1/2 transform -translate-y-1/2 w-1 h-6 bg-white rounded-l-full"></span>
+                )}
+              </button>
             )}
-
-            <div className="absolute left-full top-1/2 -translate-y-1/2 ml-2 px-4 py-2 bg-gray-800 text-white text-sm rounded-lg shadow-lg z-50 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
-              {component.name}
-              {/* Arrow for tooltip */}
-              <div className="absolute top-1/2 -translate-y-1/2 -left-1 w-0 h-0 border-t-4 border-t-transparent border-b-4 border-b-transparent border-r-4 border-r-gray-800"></div>
-            </div>
           </li>
         ))}
       </ul>
