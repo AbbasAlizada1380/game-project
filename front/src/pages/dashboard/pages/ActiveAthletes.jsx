@@ -41,7 +41,7 @@ const ActiveAthletes = () => {
   }, []);
 
   return (
-    <div className="p-6 bg-white rounded-lg shadow-md max-w-5xl mx-auto">
+    <div className="p-6 bg-white  max-w-5xl mx-auto">
       <h2 className="text-xl font-bold mb-4 text-gray-800 border-b border-gray-300 pb-2 text-center">
         ورزشکاران فعال (۳۰ روز گذشته)
       </h2>
