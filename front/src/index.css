@@ -65,3 +65,10 @@
   stroke-dasharray: 70.5096664428711 9999999;
   stroke-dashoffset: -262.2723388671875;
 }
+
+.input-filed {
+  @apply w-full border border-gray-300 rounded-md px-4 py-2 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-black/50 transition;
+}
+.primary-btn {
+  @apply mb-6 w-full max-w-sm mx-auto flex items-center gap-x-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-3 rounded-lg font-semibold  cursor-pointer shadow-md hover:scale-103 transition-all duration-500;
+}

@@ -68,21 +68,20 @@ const CreateUser = () => {
       setListLoading(false);
     }
   };
-const fetchRoles = async () => {
-  setListLoading(true);
-  try {
-    const response = await fetch(`${BASE_URL}/user/role/`);
-    const data = await response.json();
-    console.log("Roles API response:", data);
-    setRoles(data);
-  } catch (err) {
-    setListError(err.message);
-    toast.error(`خطا در دریافت لیست کاربران: ${err.message}`);
-  } finally {
-    setListLoading(false);
-  }
-};
-
+  const fetchRoles = async () => {
+    setListLoading(true);
+    try {
+      const response = await fetch(`${BASE_URL}/user/role/`);
+      const data = await response.json();
+      console.log("Roles API response:", data);
+      setRoles(data);
+    } catch (err) {
+      setListError(err.message);
+      toast.error(`خطا در دریافت لیست کاربران: ${err.message}`);
+    } finally {
+      setListLoading(false);
+    }
+  };
 
   useEffect(() => {
     fetchRoles();
@@ -241,22 +240,19 @@ const fetchRoles = async () => {
   };
 
   return (
-    <div
-      className="w-full max-w-8xl mx-auto p-6 space-y-8 font-vazir"
-      dir="rtl"
-    >
+    <div className="w-full p-6 space-y-8 ">
       <ToastContainer
         position="top-center"
         autoClose={5000}
         rtl={true}
         theme="colored"
-        bodyClassName="font-vazir"
+        bodyClassName=""
       />
-<RoleManagement/>
+      <RoleManagement />
       <div className="flex justify-end">
         <button
           onClick={() => handleModalOpen()}
-          className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg flex items-center gap-2 transition-all"
+          className="primary-btn"
           disabled={isSubmitting || listLoading}
         >
           <FiPlus className="text-lg" />
@@ -279,10 +275,10 @@ const fetchRoles = async () => {
             هیچ کاربری یافت نشد
           </div>
         ) : (
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead className="bg-gray-600 text-white text-sm">
-                <tr>
+          <div className="overflow-x-auto p-5 bg-white">
+            <table className="min-w-full ">
+              <thead className="border-b text-center border-gray-300">
+                <tr className="hover:bg-opacity-90 transition duration-300 bg-stone-200">
                   <th className="px-4 py-3 font-medium text-center w-20"></th>
                   <th className="px-4 py-3 font-medium text-right">
                     نام کاربر
@@ -298,7 +294,9 @@ const fetchRoles = async () => {
                 {users.map((user) => (
                   <tr
                     key={user.id}
-                    className="hover:bg-gray-50 transition-colors"
+                    className={`hover:bg-gray-50 transition-colors text-center cursor-pointer ${
+                      user.id % 2 === 0 ? "bg-gray-100" : "bg-gray-50"
+                    }`}
                   >
                     <td className="px-4 py-3 text-center">
                       {user.profile_pic_url ? (
@@ -510,23 +508,25 @@ const fetchRoles = async () => {
                 {/* Group them for better UI */}
                 <div className="md:col-span-2 grid grid-cols-2 sm:grid-cols-4 gap-4 pt-3">
                   {/* is_active */}
-                  {editingUserId&&
+                  {editingUserId && (
                     <div className="flex items-center space-x-2 space-x-reverse">
-                    <input
-                      type="checkbox"
-                      name="is_active"
-                      id="is_active_checkbox" // Unique ID
-                      checked={formData.is_active}
-                      onChange={handleChange}
-                      className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-                    />
-                    <label
-                      htmlFor="is_active_checkbox"
-                      className="text-sm font-medium text-gray-700 flex items-center"
-                    >
-                      <FiActivity className="ml-1 w-4 h-4 text-gray-500" /> فعال
-                    </label>
-                  </div>}
+                      <input
+                        type="checkbox"
+                        name="is_active"
+                        id="is_active_checkbox" // Unique ID
+                        checked={formData.is_active}
+                        onChange={handleChange}
+                        className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                      />
+                      <label
+                        htmlFor="is_active_checkbox"
+                        className="text-sm font-medium text-gray-700 flex items-center"
+                      >
+                        <FiActivity className="ml-1 w-4 h-4 text-gray-500" />{" "}
+                        فعال
+                      </label>
+                    </div>
+                  )}
                 </div>
               </div>
               <div className="md:col-span-2 flex gap-3 justify-end pt-5 border-t mt-5">
@@ -556,7 +556,6 @@ const fetchRoles = async () => {
           </div>
         </div>
       )}
-    
     </div>
   );
 };
