@@ -280,14 +280,14 @@ const CreateUser = () => {
               <thead className="border-b text-center border-gray-300">
                 <tr className="hover:bg-opacity-90 transition duration-300 bg-stone-200">
                   <th className="px-4 py-3 font-medium text-center w-20"></th>
-                  <th className="px-4 py-3 font-medium text-right">
+                  <th className="px-4 py-3 font-medium ">
                     نام کاربر
                   </th>
-                  <th className="px-4 py-3 font-medium text-right">ایمیل</th>
-                  <th className="px-4 py-3 font-medium text-right">نقش</th>
-                  <th className="px-4 py-3 font-medium text-center">وضعیت</th>
+                  <th className="px-4 py-3 font-medium ">ایمیل</th>
+                  <th className="px-4 py-3 font-medium ">نقش</th>
+                  <th className="px-4 py-3 font-medium ">وضعیت</th>
                   {/* You might want to add columns for is_admin, is_staff here too */}
-                  <th className="px-4 py-3 font-medium text-center">عملیات</th>
+                  <th className="px-4 py-3 font-medium ">عملیات</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
