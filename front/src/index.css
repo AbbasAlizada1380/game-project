@@ -2,50 +2,48 @@
 
 @font-face {
   font-family: "Vazirmatn";
-  src: url("/ttf/Vazirmatn-Regular.ttf") format("truetype");
-  font-weight: normal;
+  src: url("/font/Ray/Ray-Medium.ttf") format("truetype");
+  font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
 @theme {
-  --font-vazir: "Vazirmatn";
+  --font-Ray: "Ray-Medium";
   --breakpoint-3xl: 120rem;
   --color-primary: #2a2185;
   --color-secondary: #f1f1f1;
 }
 
 /* Custom Scrollbar */
-.custom-scrollbar::-webkit-scrollbar {
+/* .custom-scrollbar::-webkit-scrollbar {
   width: 8px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
   background: #f1f1f1;
   border-radius: 8px;
-}
+} */
 
-.custom-scrollbar::-webkit-scrollbar-thumb {
+/* .custom-scrollbar::-webkit-scrollbar-thumb {
   background: #2a2185;
   border-radius: 8px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: #2a2185;
-}
+} */
 
-body {
-  font-family: "Vazirmatn", sans-serif;
+* {
+  font-family: "Ray", sans-serif;
 }
-
-/* From Uiverse.io by SelfMadeSystem */ 
+/* From Uiverse.io by SelfMadeSystem */
 .containchec-containerer {
   cursor: pointer;
 }
 
 .chec-container input {
   display: none;
- 
 }
 
 .chec-container svg {

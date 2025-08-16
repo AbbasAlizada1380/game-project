@@ -14,6 +14,8 @@ import { motion } from "framer-motion";
 import ProfileModal from "./ProfileModal"; // Adjust path if needed
 import moment from "moment-jalaali"; // <<<--- IMPORT moment-jalaali
 import { shamsiMonths } from "../../utils/dateConvert"; // <<<--- IMPORT your month array (Adjust path)
+import { MdMenu } from "react-icons/md";
+import { CgMenuGridR } from "react-icons/cg";
 
 moment.loadPersian({ usePersianDigits: true, dialect: "persian-modern" });
 
@@ -82,23 +84,31 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="bg-white text-gray-800 py-3 shadow-sm px-6 grid grid-cols-3 border-b border-gray-200 font-[IRANSans]">
-        <div className="flex items-center bg-gray-100 px-4  rounded-xl shadow-sm w-[350px] rtl:flex-row-reverse">
-          <FaSearch className="text-gray-500 text-lg ml-2" />
-          <input
-            type="text"
-            placeholder="جستجو..."
-            className="bg-transparent  outline-none w-full text-gray-700 placeholder-gray-500 text-sm"
-          />
+      <nav className="bg-white text-gray-800 py-2.5 shadow-sm px-6 grid grid-cols-4 border-b border-gray-200 font-[IRANSans]">
+        <div className="flex items-center gap-x-2">
+          <span>
+            <CgMenuGridR className="text-2xl font-bold" />
+          </span>
+          <div>
+            <p className="text-xl font-bold text-gray-700">داشبورد</p>
+            <p className="text-sm">خوش آمدید به داشبورد مدیریت</p>
+          </div>
         </div>
-
         <div className="hidden md:flex items-center justify-center gap-x-4 bg-white">
           <div className="text-center flex  items-center gap-x-2">
-            <p className="text-2xl font-bold text-primary">{dateInfo.day}</p>
+            <p className="text-xl font-bold text-primary">{dateInfo.day}</p>
             <p className="text-lg text-gray-500 font-medium tracking-wide">
               {dateInfo.dateNumber} {dateInfo.month} {dateInfo.year}
             </p>
           </div>
+        </div>
+        <div className="flex items-center  bg-indigo-50  px-4  rounded-xl shadow-sm w-[350px] rtl:flex-row-reverse">
+          <FaSearch className="text-gray-500 text-lg ml-2" />
+          <input
+            type="text"
+            placeholder="جستجو..."
+            className="bg-transparent  outline-none w-full py-1.5 text-gray-700 placeholder-gray-500 text-sm"
+          />
         </div>
 
         <div className="flex items-center justify-end gap-6">
