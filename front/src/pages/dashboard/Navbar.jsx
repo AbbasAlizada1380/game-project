@@ -82,7 +82,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="bg-white text-gray-800 py-2 shadow-sm px-6 grid grid-cols-3 border-b border-gray-200 font-[IRANSans]">
+      <nav className="bg-white text-gray-800 py-3 shadow-sm px-6 grid grid-cols-3 border-b border-gray-200 font-[IRANSans]">
         <div className="flex items-center bg-gray-100 px-4  rounded-xl shadow-sm w-[350px] rtl:flex-row-reverse">
           <FaSearch className="text-gray-500 text-lg ml-2" />
           <input

@@ -7,15 +7,11 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
-import {
-  FaSignOutAlt,
-  FaMoneyBill,
-  FaBuilding,
-  FaUserPlus,
-  FaUsers,
-} from "react-icons/fa";
-import { LuActivity, LuUserRoundPlus } from "react-icons/lu";
-import { FaShop } from "react-icons/fa6";
+import { FaSignOutAlt, FaUserPlus } from "react-icons/fa";
+import { FaMoneyBillWave } from "react-icons/fa";
+import { MdSportsKabaddi } from "react-icons/md"; // Sports/Athletes
+import { RiUserStarFill } from "react-icons/ri"; // Active athletes / highlighted users
+import { MdOutlineDashboard } from "react-icons/md"; // Home/Dashboard
 
 const Sidebar = ({ setActiveComponent }) => {
   const [selectedC, setSelectedC] = useState("home");
@@ -46,32 +42,32 @@ const Sidebar = ({ setActiveComponent }) => {
     {
       name: "صفحه اصلی", // Home Page
       value: "home",
-      icon: <LuActivity />, // Activity / Dashboard
+      icon: <MdOutlineDashboard />, // Dashboard icon
     },
     {
       name: "ورزشکاران", // Athletes
       value: "Athletes",
-      icon: <LuUserRoundPlus />, // User with Plus Icon
+      icon: <MdSportsKabaddi />, // Sports icon
     },
     {
       name: "فیس", // Fees
       value: "Fees",
-      icon: <FaMoneyBill />, // Money Icon
+      icon: <FaMoneyBillWave />, // Money / Payment icon
     },
     {
       name: "ورزشکاران فعال", // Active Athletes
       value: "ActiveAthletes",
-      icon: <FaBuilding />, // Building Icon (e.g., gym or facility)
+      icon: <RiUserStarFill />, // Starred user = active athletes
     },
     {
-      name: " ثبت کاربر جدید", // Create New User
+      name: "ثبت کاربر جدید", // Create New User
       value: "CreateUsers",
-      icon: <FaUserPlus />, // User Plus Icon (FaUserPlus from react-icons/fa)
+      icon: <FaUserPlus />, // User Plus icon
     },
     {
       name: "خروج", // Sign Out
       value: "signout",
-      icon: <FaSignOutAlt />, // Sign Out Icon
+      icon: <FaSignOutAlt />, // Sign out icon
     },
   ];
 
@@ -113,59 +109,91 @@ const Sidebar = ({ setActiveComponent }) => {
   }
 
   return (
-    <div className="h-full w-64 bg-zinc-800 overflow-y-auto shadow-xl">
-      {/* Header */}
-      <header className="flex items-center p-5 mb-2">
-        <div className="p-2 bg-white rounded-lg shadow-md">
-          <img src="/logo.png" alt="Logo" className="h-8 w-8" />
-        </div>
-        <span className="mr-3 text-xl font-bold text-white">
-          کلپ بوگسینگ ملت
-        </span>
-      </header>
+    <div className="h-full w-64 bg-white overflow-y-auto shadow-xl flex flex-col justify-between">
+      <div>
+        {/* Header */}
+        <header className="flex items-center p-5 mb-2">
+          <div className="p-1 ">
+            <img src="/logo.png" alt="Logo" className="h-9 w-9" />
+          </div>
+          <span className="mr-3 text-xl font-bold text-gray-800">
+            کلپ بوگسینگ ملت
+          </span>
+        </header>
 
-      {/* Menu Items */}
-      <ul className="space-y-1 px-2">
-        {AllComponents.map((component, index) => (
-          <li key={index} className="relative">
-            {component.value === "signout" ? (
-              <button
-                onClick={handleSignOut}
-                className={`w-full flex items-center gap-x-2.5 px-4 py-3 rounded-lg transition-all duration-200
-              hover:bg-white cursor-pointer hover:text-zinc-900 hover:shadow-md
+        {/* Menu Items */}
+        <ul className="space-y-1 px-2">
+          {AllComponents.map((component, index) => (
+            <li key={index} className="relative">
+              {component.value === "signout" ? (
+                <button
+                  onClick={handleSignOut}
+                  className={`w-full flex items-center gap-x-3 px-4 py-3 rounded-lg transition-all duration-200
+              hover:bg-gradient-to-l from-blue-500  to-purple-500 cursor-pointer hover:text-white hover:shadow-md
               ${
                 activeC === component.value
                   ? "bg-white text-indigo-700 font-medium"
-                  : "text-indigo-100"
+                  : "text-gray-700"
               }`}
-              >
-                <span className="text-xl mr-3">{component.icon}</span>
-                <span className="text-sm">{component.name}</span>
-              </button>
-            ) : (
-              <button
-                onClick={() => {
-                  setActiveComponent(component.value);
-                  setSelectedC(component.value);
-                  setActiveC(component.value);
-                }}
-                className={`w-full flex items-center cursor-pointer gap-x-2.5 px-4 py-3 rounded-lg transition-all duration-200
+                >
+                  <span className="text-xl mr-3 font-semibold">
+                    {component.icon}
+                  </span>
+                  <span className="text-sm font-semibold">
+                    {component.name}
+                  </span>
+                </button>
+              ) : (
+                <button
+                  onClick={() => {
+                    setActiveComponent(component.value);
+                    setSelectedC(component.value);
+                    setActiveC(component.value);
+                  }}
+                  className={`w-full flex items-center cursor-pointer gap-x-3 px-4 py-3 rounded-lg transition-all duration-200
               ${
                 activeC === component.value
-                  ? "bg-white text-zinc-900 font-medium shadow-md"
-                  : "text-white hover:bg-white hover:text-zinc-900 hover:shadow-md"
+                  ? "bg-gradient-to-l from-blue-500  to-purple-500 cursor-pointer text-white font-medium shadow-md"
+                  : "hover:bg-gradient-to-l from-blue-500  to-purple-500 text-gray-700 cursor-pointer hover:text-white"
               }`}
-              >
-                <span className="text-xl mr-3">{component.icon}</span>
-                <span className="text-base">{component.name}</span>
-                {activeC === component.value && (
-                  <span className="absolute right-0 top-1/2 transform -translate-y-1/2 w-1 h-6 bg-white rounded-l-full"></span>
-                )}
-              </button>
-            )}
-          </li>
-        ))}
-      </ul>
+                >
+                  <span className="text-xl font-semibold mr-3">
+                    {component.icon}
+                  </span>
+                  <span className="text-base font-semibold ">
+                    {component.name}
+                  </span>
+                  {activeC === component.value && (
+                    <span className="absolute right-0 top-1/2 transform -translate-y-1/2 w-1 h-8 bg-white rounded-l-full"></span>
+                  )}
+                </button>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* User Profile at Bottom */}
+      {currentUser && (
+        <div className="p-4  border-t border-gray-300 flex items-center gap-3">
+          <img
+            src={
+              currentUser.profileImage ||
+              "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=200"
+            }
+            alt="User"
+            className="h-10 w-10 rounded-full object-cover border"
+          />
+          <div>
+            <p className="font-semibold text-gray-800 text-sm">
+              {currentUser.name || "استاد رحیم"}
+            </p>
+            <p className="text-gray-500 text-xs">
+              {currentUser.position || "ترینر"}
+            </p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
